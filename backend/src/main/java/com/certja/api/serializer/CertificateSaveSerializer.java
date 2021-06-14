@@ -32,10 +32,8 @@ public class CertificateSaveSerializer extends StdSerializer<CertificateSave> {
 		jsonGenerator.writeStartObject();
 		jsonGenerator.writeNumberField("id", certificateSave.getId());
 		jsonGenerator.writeStringField("holder_name", certificateSave.getHolderName());
-		jsonGenerator.writeArrayFieldStart("validity");
-		jsonGenerator.writeString(initialDateParsed);
-		jsonGenerator.writeString(endDateParsed);
-		jsonGenerator.writeEndArray();
+		jsonGenerator.writeStringField("initial_date", initialDateParsed);
+		jsonGenerator.writeStringField("end_date", endDateParsed);
 		jsonGenerator.writeEndObject();
 	}
 

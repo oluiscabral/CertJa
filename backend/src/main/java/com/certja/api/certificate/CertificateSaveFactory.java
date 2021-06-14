@@ -5,7 +5,6 @@ import java.security.cert.CertificateException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 import org.bouncycastle.cert.CertIOException;
 import org.bouncycastle.operator.OperatorCreationException;
@@ -33,17 +32,9 @@ public class CertificateSaveFactory {
 	}
 
 	private Date[] getValidity(LinkedHashMap request) throws Exception {
-		Date[] validity = new Date[2];
-		List<String> validityRaw = (List) request.get("validity");
-		for (int i = 0; i < 2; i++) {
-			String dateRaw = validityRaw.get(i);
-			Date dateParsed = dateFormatter.parse(dateRaw);
-			validity[i] = dateParsed;
-		}
-		if (validity[0].getTime() > validity[1].getTime()) {
-			throw new Exception("Invalid validity: initial date is after end date.");
-		}
-		return validity;
+		Date initialDateParsed = dateFormatter.parse((String) request.get("initial_date"));
+		Date endDateParsed = dateFormatter.parse((String) request.get("end_date"));
+		return new Date[] { initialDateParsed, endDateParsed };
 	}
 
 	private Certificate createCertificate(Date[] validity)
