@@ -1,0 +1,85 @@
+.main-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-page header {
+    width: 1000px;
+    height: 50px;
+    background-color: greenyellow;
+    display: flex;
+}
+
+.main-page header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: grey;
+    width: 200px;
+}
+
+.main-page main {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-page .query-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    align-items: center;
+    background-color: lightgrey;
+}
+
+.main-page .query-wrapper .input-wrapper {
+    width: 400px;
+}
+
+.main-page .query-wrapper .input-wrapper label {
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+
+.main-page .query-wrapper .input-wrapper input {
+    display: block;
+    width: 300px;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+.main-page .query-wrapper .button-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.main-page .query-wrapper .button-wrapper button {
+    width: 120px;
+    height: 40px;
+}
+
+.main-page .query-wrapper .button-wrapper button:first-child {
+    margin-right: 20px;
+}
+
+.main-page main .result {
+    margin-top: 25px;
+    width: 100%;
+}
+
+.main-page main .result .result__row {
+    cursor: pointer;
+    height: 30px;
+    text-align: center;
+}
+
+.main-page main .result .result__row {
+    background-color: white;
+}
+
+.main-page main .result .result__row:nth-child(even) {
+    background-color: gainsboro;
+}
