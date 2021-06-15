@@ -1,6 +1,7 @@
 package com.certja.api.serializer;
 
 import java.io.IOException;
+import java.security.cert.Certificate;
 import java.text.SimpleDateFormat;
 
 import com.certja.api.model.CertificateSave;
@@ -28,12 +29,14 @@ public class CertificateSaveSerializer extends StdSerializer<CertificateSave> {
 
 		String initialDateParsed = dateFormatter.format(certificateSave.getInitialDate());
 		String endDateParsed = dateFormatter.format(certificateSave.getEndDate());
+		Certificate certificate = certificateSave.getCertificate();
 
 		jsonGenerator.writeStartObject();
 		jsonGenerator.writeNumberField("id", certificateSave.getId());
 		jsonGenerator.writeStringField("holder_name", certificateSave.getHolderName());
 		jsonGenerator.writeStringField("initial_date", initialDateParsed);
 		jsonGenerator.writeStringField("end_date", endDateParsed);
+		jsonGenerator.writeStringField("certificate", certificate.toString());
 		jsonGenerator.writeEndObject();
 	}
 
